@@ -59,6 +59,10 @@ section {
 footer {
   padding: 40px 0 40px;
 }
+footer img {
+  width: 100px;
+  padding-top: 60px;
+}
 img {
   width: 100%;
   height: auto;
@@ -226,6 +230,7 @@ html, body {
 }
 .cd-logo img {
   display: block;
+  width: 200px;
 }
 @media only screen and (min-width: 768px) {
   .cd-logo {
@@ -404,6 +409,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   margin: .2em 0;
   text-transform: capitalize;
+}
+.cd-primary-nav li img {
+  width: 100px;
+  padding-top: 50px;
 }
 .cd-primary-nav a {
   color: #B8A9A2;
