@@ -1,0 +1,764 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400|Pinyon+Script|Playfair+Display:400,400i';
+
+/* -------------------------------- 
+Use the following CSS rules to specify font families:
+font-family: 'Pinyon Script', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Lato', sans-serif;
+-------------------------------- */
+
+/* -------------------------------- 
+
+Colors
+-------------------------------- */
+.gold {
+  color: #B7A8A1;
+}
+.dark-gold {
+  color: #897C76;
+}
+.light-gold {
+  color: #C9BDB9;
+}
+.royal-blue {
+  color: #425871;
+}
+.dark-royal-blue {
+ color: #384B5E;
+}
+.light-royal-blue {
+  color: #4A637C;
+}
+.grey {
+  color: #F1F2F4;
+}
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1em;
+  font-family: 'Playfair Display', serif;
+  color: #425871;
+  background-color: white;
+}
+body.overflow-hidden {
+  /* when primary navigation is visible, the content in the background won't scroll */
+  overflow: hidden;
+}
+section {
+  padding: 20px 0 40px;
+}
+footer {
+  padding: 40px 0 40px;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+a {
+  color: #425871;
+  text-decoration: none;
+}
+p {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 2em 0;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 2em;
+  text-transform: uppercase;
+  margin: 1em 0;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 2em;
+  text-transform: uppercase;
+  margin: 1em 0;
+}
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin: 1em 0;
+}
+
+.text-center {
+  text-align: center;
+}
+.grey-background {
+  background-color: #F1F2F4;
+}
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cd-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-main-content {
+  position: relative;
+  z-index: 1;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-main-content p {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}
+.inner-page-top { /* adds pixels on top of the screen to account for nav bar*/
+  margin-top: 80px;
+}
+@media only screen and (max-width: 768px) {
+  .inner-page-top {
+    margin-top: 50px;
+  }
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+html, body {
+  height: 100%;
+}
+
+.cd-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #425871;
+  height: 50px;
+  width: 100%;
+  z-index: 3;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media only screen and (min-width: 768px) {
+  .cd-header {
+    height: 80px;
+    background: #425871;
+    box-shadow: none;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-header {
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .cd-header.is-fixed {
+    /* when the user scrolls down, we hide the header right above the viewport */
+    position: fixed;
+    top: -80px;
+    background-color: #425871;
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+  }
+  .cd-header.is-visible {
+    /* if the user changes the scrolling direction, we show the header */
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -o-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  .cd-header.menu-is-open {
+    /* add a background color to the header when the navigation is open */
+    background-color: #425871;
+  }
+}
+
+.cd-logo {
+  display: block;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 1.5em;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: .875em;
+}
+.cd-logo a {
+  color: #B7A8A1;
+}
+.cd-logo a:hover {
+  color: #C9BDB9;
+}
+.cd-logo img {
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  .cd-logo {
+    left: 2.6em;
+  }
+}
+
+.cd-secondary-nav {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 10em;
+  /* hidden on small devices */
+  display: none;
+}
+.cd-secondary-nav li {
+  display: inline-block;
+  margin-left: 2.2em;
+}
+.cd-secondary-nav a {
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  .cd-secondary-nav {
+    display: block;
+  }
+}
+
+.cd-primary-nav-trigger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background-color: #425871;
+}
+.cd-primary-nav-trigger .cd-menu-text {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  /* hide the text on small devices */
+  display: none;
+}
+.cd-primary-nav-trigger .cd-menu-icon {
+  /* this span is the central line of the menu icon */
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 18px;
+  height: 2px;
+  background-color: #B7A8A1;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  /* these are the upper and lower lines in the menu icon */
+}
+.cd-primary-nav-trigger .cd-menu-icon::before, .cd-primary-nav-trigger .cd-menu-icon:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #B7A8A1;
+  right: 0;
+  -webkit-transition: -webkit-transform .3s, top .3s, background-color 0s;
+  -moz-transition: -moz-transform .3s, top .3s, background-color 0s;
+  transition: transform .3s, top .3s, background-color 0s;
+}
+.cd-primary-nav-trigger .cd-menu-icon::before {
+  top: -5px;
+}
+.cd-primary-nav-trigger .cd-menu-icon::after {
+  top: 5px;
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked {
+  background-color: rgba(255, 255, 255, 0);
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before, .cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  background-color: #B7A8A1;
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  top: 0;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+@media only screen and (min-width: 768px) {
+  .cd-primary-nav-trigger {
+    width: 100px;
+    padding-left: 1em;
+    background-color: transparent;
+    height: 30px;
+    line-height: 30px;
+    right: 2.2em;
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .cd-primary-nav-trigger .cd-menu-text {
+    display: inline-block;
+  }
+  .cd-primary-nav-trigger .cd-menu-icon {
+    left: auto;
+    right: 1em;
+    -webkit-transform: translateX(0) translateY(-50%);
+    -moz-transform: translateX(0) translateY(-50%);
+    -ms-transform: translateX(0) translateY(-50%);
+    -o-transform: translateX(0) translateY(-50%);
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+.cd-primary-nav {
+  /* by default it's hidden - on top of the viewport */
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #425871;
+  z-index: 2;
+  text-align: center;
+  padding: 100px 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: auto;
+  /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.cd-primary-nav li {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-size: 1.375rem;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: .2em 0;
+  text-transform: capitalize;
+}
+.cd-primary-nav a {
+  color: #B8A9A2;
+  display: inline-block;
+  padding: .4em 1em;
+  border-radius: 0.25em;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.no-touch .cd-primary-nav a:hover {
+  color: #998A87;
+}
+.cd-primary-nav .cd-label {
+  color: #06446e;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin: 2.4em 0 .8em;
+}
+.cd-primary-nav .cd-social {
+  display: inline-block;
+  margin: 0 .4em;
+}
+.cd-primary-nav .cd-social a {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-image: url("http://codyhouse.co/demo/full-screen-pop-out-navigation/img/cd-socials.svg");
+  background-repeat: no-repeat;
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+.cd-primary-nav .cd-facebook a {
+  background-position: 0 0;
+}
+.cd-primary-nav .cd-instagram a {
+  background-position: -44px 0;
+}
+.cd-primary-nav .cd-dribbble a {
+  background-position: -88px 0;
+}
+.cd-primary-nav .cd-twitter a {
+  background-position: -132px 0;
+}
+.cd-primary-nav.is-visible {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+@media only screen and (min-width: 768px) {
+  .cd-primary-nav {
+    padding: 80px 0;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-primary-nav li {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+  .cd-primary-nav .cd-label {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+.cd-intro {
+  position: relative;
+  height: 100%;
+  background: url("../img/hotel-room.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro h1 {
+  position: absolute;
+  width: 90%;
+  max-width: 1170px;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  font-family: 'Pinyon Script', cursive;
+  color: white;
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+  .cd-intro h1 {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-intro {
+    height: 700px;
+  }
+}
+.page-intro {
+  position: relative;
+  height: 20%;
+  margin-top: 80px;
+  background: url("../img/hotel-room-3.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media only screen and (max-width: 768px) {
+  .page-intro {
+  margin-top: 50px;
+  }
+}
+
+/* ----------------------------
+
+ELEMENTS
+
+-----------------------------*/
+#nav-book-btn {
+  border: 1px solid #B7A8A1;
+  padding: 10px;
+  color: #B7A8A1;
+}
+#nav-book-btn:hover {
+  border: 1px solid #C9BDB9;
+  padding: 10px;
+  color: #C9BDB9;
+}
+#nav-email {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: #B7A8A1;
+}
+#big-blue-btn {
+  -webkit-border-radius: 1;
+  -moz-border-radius: 1;
+  border-radius: 1px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 1em;
+  background: #425871;
+  padding: 20px 100px;
+  border: solid #425871 3px;
+  text-decoration: none;
+}
+#big-blue-btn:hover {
+  border: solid #4A637C 3px;
+  background: #4A637C;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+}
+@media only screen and (max-width: 480px) {
+  #big-blue-btn {
+  padding: 20px 80px;
+  }
+}
+.intro-review {
+  position: relative;
+  width: 350px;
+  margin: 10px;
+}
+.experience-card {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #425871;
+  border-top: 8px solid #425871;
+  width: 350px;
+  height: 200px;
+  margin: 30px 10px;
+  padding: 50px 0 20px;
+}
+.experience-card p {
+  margin: 0.4em;
+}
+.experience-card h3 {
+  margin: 0.4em;
+}
+.experience-card:hover {
+  border: 1px solid #4A637C;
+  border-top: 8px solid #4A637C;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+}
+.book-your-stay {
+  position: relative;
+  height: 300px;
+  background: url("../img/hotel-room-4.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+.book-your-stay h3 {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: #B7A8A1;
+  font-size: 1.5em;
+  border: 1px solid #B7A8A1;
+  padding: 10px 30px;
+}
+.book-your-stay h3:hover {
+  color: #C9BDB9;
+  border: 1px solid #C9BDB9;
+  cursor: pointer;
+}
+@media only screen and (max-width: 560px) {
+  .book-your-stay {
+    height: 250px;
+    top: 50%;
+  }
+  .book-your-stay h3 {
+  font-size: 1em;
+  }
+}
+.copyright {
+  font-family: 'Lato', sans-serif;
+  font-size: .6em;
+  color: #425871;
+  line-height: 1.6em;
+  border-top: 1px solid #425871;
+  padding-top: 10px;
+}
+#heart {
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 11px;
+}
+#heart:before,
+#heart:after {
+    position: absolute;
+    content: "";
+    left: 7px;
+    top: 2px;
+    width: 7px;
+    height: 10px;
+    background: #425871;
+    -moz-border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+         -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+}
+#heart:after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+       -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+         -o-transform-origin: 100% 100%;
+            transform-origin :100% 100%;
+}
+#map-action {
+  padding-top: 20px;
+  text-align: center
+}
+.white-btn {
+  position: relative; 
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #425871;
+  background: white;
+  border: 1px solid #425871;
+  height: 40px;
+  width: 150px;
+  margin: 0 5px;
+}
+.white-btn:hover {
+  border: 1px solid #4A637C;
+  color: #4A637C;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+}
+.exquisite-design {
+  position: relative;
+  height: 450px;
+  background: url("../img/hotel-room-4.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+.exquisite-design h2 {
+  color: white;
+}
+.exquisite-design p {
+  color: white;
+}
+.exquisite-design h3 {
+  position: relative;
+  left: 50%;
+  width: 350px;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: #B7A8A1;
+  font-size: 1.5em;
+  border: 1px solid #B7A8A1;
+  padding: 10px 30px;
+  max-resolution: res;
+}
+.exquisite-design h3:hover {
+  color: #C9BDB9;
+  border: 1px solid #C9BDB9;
+  cursor: pointer;
+}
+@media only screen and (max-width: 560px) {
+  .exquisite-design {
+    height: 450px;
+    top: 80%;
+  }
+  .exquisite-design h3 {
+  font-size: 1em;
+  }
+}
