@@ -424,7 +424,7 @@ html, body {
   transition: background 0.2s;
 }
 .no-touch .cd-primary-nav a:hover {
-  color: #998A87;
+  color: #C9BDB9;
 }
 .cd-primary-nav .cd-label {
   color: #06446e;
@@ -562,6 +562,9 @@ ELEMENTS
   text-transform: lowercase;
   color: #B7A8A1;
 }
+#nav-email:hover {
+  color: #C9BDB9;
+}
 #big-blue-btn {
   -webkit-border-radius: 1;
   -moz-border-radius: 1;
@@ -640,8 +643,13 @@ ELEMENTS
   border: 1px solid #B7A8A1;
   padding: 10px 30px;
 }
-.book-your-stay h3:hover {
+.book-your-stay h3 a {
+  color: #B7A8A1;
+}
+.book-your-stay h3 a:hover {
   color: #C9BDB9;
+}
+.book-your-stay h3:hover {
   border: 1px solid #C9BDB9;
   cursor: pointer;
 }
@@ -726,13 +734,34 @@ ELEMENTS
 }
 .exquisite-design {
   position: relative;
-  height: 450px;
+  height: 400px;
   background: url("../img/hotel-room-4.jpg") no-repeat center center;
   background-size: cover;
   z-index: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+@media only screen and (max-width: 630px) {
+  .exquisite-design {
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .exquisite-design p {
+    font-size: .9em;
+  }
+  .exquisite-design h3 {
+  font-size: 1em;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .exquisite-design h3 {
+    margin-top: 0;
+  }
+  .exquisite-design {
+    height: 490px;
+  }
 }
 .exquisite-design h2 {
   color: white;
@@ -755,6 +784,7 @@ ELEMENTS
   font-size: 1.5em;
   border: 1px solid #B7A8A1;
   padding: 10px 30px;
+  margin-top: 80px;
   max-resolution: res;
 }
 .exquisite-design h3:hover {
@@ -762,12 +792,15 @@ ELEMENTS
   border: 1px solid #C9BDB9;
   cursor: pointer;
 }
-@media only screen and (max-width: 560px) {
-  .exquisite-design {
-    height: 450px;
-    top: 80%;
-  }
-  .exquisite-design h3 {
-  font-size: 1em;
-  }
+.img-grid img{
+  display: inline-block;
+  width: 270px;
+}
+.room-icons img {
+  width: 150px;
+  margin: 10px;
+}
+.room-icons img:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
 }
