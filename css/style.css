@@ -769,6 +769,12 @@ ELEMENTS
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+.exquisite-design h3 a {
+  color: #B7A8A1;
+}
+.exquisite-design h3 a:hover {
+  color: #C9BDB9;
+}
 @media only screen and (max-width: 630px) {
   .exquisite-design {
     height: 450px;
