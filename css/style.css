@@ -32,6 +32,9 @@ Colors
 .grey {
   color: #F1F2F4;
 }
+.white-space-20 {
+  margin-top: 20px;
+}
 /* -------------------------------- 
 
 Primary style
@@ -98,6 +101,25 @@ h3 {
   font-size: 1.5em;
   text-transform: uppercase;
   margin: 1em 0;
+}
+h4 {
+  font-family: 'Playfair Display', serif;
+  color: #425871;
+  font-weight: 400;
+  font-size: 1em;
+  text-transform: uppercase;
+  margin: 1em 0;
+}
+h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  color: #999;
+  font-size: .8em;
+  padding-top: 6px;
+}
+h6 {
+
 }
 
 .text-center {
@@ -488,7 +510,7 @@ html, body {
   position: relative;
   height: 100%;
   margin-top: 80px;
-  background: url("../img/hotel-room.jpg") no-repeat center center;
+  background: url("../img/photos/lafayette-house-lg-010-blue.jpg") no-repeat center center;
   background-size: cover;
   z-index: 1;
   -webkit-font-smoothing: antialiased;
@@ -569,6 +591,7 @@ ELEMENTS
 #nav-email:hover {
   color: #C9BDB9;
 }
+
 #big-blue-btn {
   -webkit-border-radius: 1;
   -moz-border-radius: 1;
@@ -604,7 +627,7 @@ ELEMENTS
   text-align: center;
   border: 1px solid #425871;
   border-top: 8px solid #425871;
-  width: 350px;
+  width: 320px;
   height: 200px;
   margin: 30px 10px;
   padding: 50px 0 20px;
@@ -800,11 +823,101 @@ ELEMENTS
   display: inline-block;
   width: 270px;
 }
-.room-icons img {
-  width: 150px;
-  margin: 5px;
+
+
+/*///////////////////////
+
+Flipping cards 
+
+///////////////////////*/
+.flip {
+    -webkit-perspective: 800;
+    width: 270px;
+    height: 270px;
+    display: inline-block;
+    margin: 10px;
 }
-.room-icons img:hover {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+.flip .card.flipped {
+    -webkit-transform: rotatey(-180deg);
+}
+.flip .card {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    background-size: cover;
+    margin: 0 auto;
+    color: #1F3238;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.flip .card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   cursor: pointer;
+}
+.flip .card .face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    z-index: 2;
+    text-align: center;
+}
+.flip .card .front {
+    z-index: 1;
+    cursor: pointer;
+}
+
+.flip .card .back {
+    -webkit-transform: rotatey(-180deg);
+    background: white;
+    cursor: pointer;
+    padding: 10px;
+    border: 5px solid #425871;
+}
+.flip .card .back p {
+  font-size: .8em;
+  color: #425871;
+}
+
+/*///////////////////////
+
+Gallery
+
+///////////////////////*/
+.thumb {
+  width: 290px;
+  height: 180px;
+}
+/* thumb size changes as the screen schrinks */
+@media only screen and (max-width: 980px) {
+  .thumb {
+    width: 250px;
+    height: 150px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .thumb {
+    width: 220px;
+    height: 130px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .thumb {
+    width: 190px;
+    height: 125px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .thumb {
+    width: 160px;
+    height: 105px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .hidden-on-mobile {
+    display: none;
+  }
 }

@@ -44,4 +44,40 @@ jQuery(document).ready(function($){
 			});	
 		}
 	});
+
+
+	//toggle room descriptions cards
+	$('#js-flip-1').bind('click', function() {
+    $('#js-flip-1 .card').toggleClass('flipped');
+	});
+	$('#js-flip-2').bind('click', function() {
+    $('#js-flip-2 .card').toggleClass('flipped');
+	});
+	$('#js-flip-3').bind('click', function() {
+    $('#js-flip-3 .card').toggleClass('flipped');
+	});
+	$('#js-flip-4').bind('click', function() {
+    $('#js-flip-4 .card').toggleClass('flipped');
+	});
+	$('#js-flip-5').bind('click', function() {
+    $('#js-flip-5 .card').toggleClass('flipped');
+	});
+	$('#js-flip-6').bind('click', function() {
+    $('#js-flip-6 .card').toggleClass('flipped');
+	});
+	$('#js-flip-7').bind('click', function() {
+    $('#js-flip-7 .card').toggleClass('flipped');
+	});
+	$('#js-flip-8').bind('click', function() {
+    $('#js-flip-8 .card').toggleClass('flipped');
+	});
+
+
+	////// Initiate Lightgallery plugin //////
+  $("#lightgallery").lightGallery({
+    thumbnail: true,
+    animateThumb: false,
+    showThumbByDefault: false
+  });
+  
 });

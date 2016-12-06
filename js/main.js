@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
             }
             this.previousTop = currentTop;
         });
-    }
+    };
 
     //open/close primary navigation
     $('.cd-primary-nav-trigger').on('click', function(){
@@ -43,5 +43,10 @@ jQuery(document).ready(function($){
                 $('body').addClass('overflow-hidden');
             }); 
         }
+    });
+
+    // toggle room descriptions
+    $('.learn-more-01').click(function() {
+        $('#room-description-01').toggle();
     });
 });
