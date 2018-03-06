@@ -103,6 +103,18 @@ p {
     margin: 2em 0;
 }
 
+ol li {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 1em 0;
+}
+
+ol li a {
+    color: #425871;
+    text-decoration: underline;
+}
+
 h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
