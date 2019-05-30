@@ -71,6 +71,9 @@ jQuery(document).ready(function($){
 	$('#js-flip-8').bind('click', function() {
     $('#js-flip-8 .card').toggleClass('flipped');
 	});
+	$('#js-flip-9').bind('click', function() {
+    $('#js-flip-9 .card').toggleClass('flipped');
+  });
 
 
 	////// Initiate Lightgallery plugin //////
